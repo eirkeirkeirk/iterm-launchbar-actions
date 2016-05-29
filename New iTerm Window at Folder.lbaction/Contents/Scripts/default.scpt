@@ -1,15 +1,13 @@
 -- LaunchBar Action Script
--- Opens a folder/directory/path in a new tab in iTerm
+-- Opens a folder/directory/path in a new iTerm window
 
 on handle_string(_string)
-	set command to "cd " & escapeSpaces(_string)
-	runCommand(command)
+	makeWindowAtPath(_string)
 end handle_string
 
 on open (_path)
 	set _path to POSIX path of _path
-	set command to "cd " & escapeSpaces(_path)
-	runCommand(command)
+	makeWindowAtPath(_path)
 end open
 
 on escapeSpaces(_string)
@@ -21,11 +19,13 @@ on escapeSpaces(_string)
 	return _string
 end escapeSpaces
 
-on runCommand(command)
+on makeWindowAtPath(path)
+	set command to "cd " & escapeSpaces(path)
 	tell application "iTerm"
+		activate
 		set newWindow to (create window with default profile)
 		tell current session of first window
 			write text command
 		end tell
 	end tell
-end runCommand
+end makeWindowAtPath
