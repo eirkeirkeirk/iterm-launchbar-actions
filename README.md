@@ -1,5 +1,7 @@
 # Open Folder in iTerm LaunchBar Actions
 
+> If you want a hack that'll make LaunchBar's ⌘T properly open the selected folder in iTerm2 v3, [check out this project](https://github.com/eirkeirkeirk/iterm2-lb-hack).
+
 These actions shouldn't be needed. After all, LaunchBar lets you choose iTerm as your preferred terminal application. But the built-in actions to open a selected folder in a new terminal window or tab fail silently if you've made that choice. At least if you are running the betas. This is due to some changes in [iTerm's AppleScript definitions](http://iterm2.com/applescript.html).
 
 ## Installation
